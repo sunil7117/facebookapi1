@@ -1,6 +1,9 @@
 import UserModel from "../models/userModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+export const welcome = (req, res) => {
+  res.send("welcome in auth system");
+};
 export const signin = async (req, res) => {
   try {
     const user = await UserModel.findOne({
