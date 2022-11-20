@@ -16,6 +16,7 @@ app.get("/", (req, res) => {
 // Routes Here
 app.use(morgan("common"));
 app.use(express.json());
+
 app.use("/api/auth", AuthRouter);
 app.use("/api/posts", postRouter);
 // Routes Here
