@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import morgan from "morgan";
+import cors from "cors";
 import connect from "./config/connect.js";
 import AuthRouter from "./routes/auth.js";
 import postRouter from "./routes/post.js";
@@ -16,7 +17,7 @@ app.get("/", (req, res) => {
 // Routes Here
 app.use(morgan("common"));
 app.use(express.json());
-
+app.use(cors());
 app.use("/api/auth", AuthRouter);
 app.use("/api/posts", postRouter);
 // Routes Here
