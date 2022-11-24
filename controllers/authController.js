@@ -29,7 +29,10 @@ export const signup = async (req, res) => {
     const salt = await bcrypt.genSalt(saltRounds);
     const hash = await bcrypt.hash(req.body.password, salt);
     const newUser = new UserModel({ ...req.body, password: hash });
+    console.log(newUser);
+    console.log("newUser");
     const saveUser = await newUser.save();
+    console.log(saveUser);
     const token = jwt.sign({ id: saveUser._id }, process.env.JWT_SECERET_KEY);
     const { password, ...other } = saveUser._doc;
     res
