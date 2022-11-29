@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import morgan from "morgan";
+import cookieParser from "cookie-parser";
 import cors from "cors";
 import connect from "./config/connect.js";
 import AuthRouter from "./routes/auth.js";
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to api");
 });
 // Routes Here
+app.use(cookieParser());
 app.use(morgan("common"));
 app.use(express.json());
 app.use(cors());
