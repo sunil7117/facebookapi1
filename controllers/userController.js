@@ -13,6 +13,7 @@ export const getAlluser = async (req, res) => {
   }
 };
 export const user = async (req, res) => {
+  console.log(req.body.friendReqId);
   try {
     const user = await UserModel.findById(req.body.friendReqId);
     res.status(200).json(user);
