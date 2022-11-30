@@ -12,6 +12,14 @@ export const getAlluser = async (req, res) => {
     console.log(err);
   }
 };
+export const user = async (req, res) => {
+  try {
+    const user = await UserModel.findById(req.body.friendReqId);
+    res.status(200).json(user);
+  } catch (err) {
+    console.log(err);
+  }
+};
 export const friendRequest = async (req, res) => {
   try {
     const currentUser = await UserModel.findById(req.body.currentId);
