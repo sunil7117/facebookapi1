@@ -1,6 +1,13 @@
 import express from "express";
-import { getAlluser } from "../controllers/userController.js";
+import {
+  friendRequest,
+  getAlluser,
+  friendAdd,
+} from "../controllers/userController.js";
 const router = express.Router();
-// create a post
+// get all users
 router.get("/", getAlluser);
+// send friend request
+router.put("/send", friendRequest);
+router.put("/accept", friendAdd);
 export default router;
