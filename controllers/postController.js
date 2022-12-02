@@ -11,11 +11,15 @@ export const createPost = async (req, res) => {
   }
 };
 export const getmyposts = async (req, res) => {
-  console.log(req.params.id);
   try {
+    console.log(req.params.id);
     const currentUser = await UserModel.findById(req.params.id);
-    console.log(currentUser);
-    const posts = await PostModel.find({ userId: currentUser._id });
-    res.send(posts);
+    const userPosts = await PostModel.find({ userId: currentUser._id });
+    const friendPosts = await Promise.all(
+      currentUser.friends.map((friendId) => {
+        return PostModel.find({ userId: friendId });
+      })
+    );
+    res.status(200).json(userPosts.concat(...friendPosts));
   } catch (error) {}
 };
