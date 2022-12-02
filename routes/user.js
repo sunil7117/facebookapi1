@@ -4,6 +4,7 @@ import {
   getAlluser,
   friendAdd,
   requestList,
+  postUser,
 } from "../controllers/userController.js";
 const router = express.Router();
 
@@ -12,6 +13,8 @@ router.post("/", getAlluser);
 
 // send friend request to a user
 router.post("/send", friendRequest);
+// GET A POSTED USER
+router.get("/:postUserId", postUser);
 // get friend request list
 router.post("/requestlist", requestList);
 

@@ -1,3 +1,4 @@
+import PostModel from "../models/postModel.js";
 import UserModel from "../models/userModel.js";
 // get all users list for friends list
 export const getAlluser = async (req, res) => {
@@ -9,6 +10,19 @@ export const getAlluser = async (req, res) => {
       return user._id.toString() !== obj;
     });
     res.status(200).json(fuser);
+  } catch (err) {
+    console.log(err);
+  }
+};
+// get a users list for friends list
+export const postUser = async (req, res) => {
+  try {
+    console.log(req.params.postUserId);
+    const postUserId = await PostModel.findOne({
+      userId: req.params.postUserId,
+    });
+    const postUser = await UserModel.findById(postUserId?.userId);
+    res.send(postUser);
   } catch (err) {
     console.log(err);
   }
