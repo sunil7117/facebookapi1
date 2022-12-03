@@ -4,9 +4,7 @@ import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import connect from "./config/connect.js";
-import AuthRouter from "./routes/auth.js";
-import postRouter from "./routes/post.js";
-import userRouter from "./routes/user.js";
+
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8080;
