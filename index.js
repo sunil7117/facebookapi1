@@ -11,8 +11,8 @@ import userRouter from "./routes/user.js";
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8080;
-const DATABASE_URL = "mongodb://localhost:27017" || process.env.DATABASE_URL;
-// const DATABASE_URL = process.env.DATABASE_URL;
+// const DATABASE_URL = "mongodb://localhost:27017" || process.env.DATABASE_URL;
+const DATABASE_URL = process.env.DATABASE_URL;
 console.log(DATABASE_URL);
 connect(DATABASE_URL);
 app.get("/", (req, res) => {
