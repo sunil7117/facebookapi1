@@ -21,7 +21,7 @@ export const postUser = async (req, res) => {
     const postUserId = await PostModel.findOne({
       userId: req.params.postUserId,
     });
-    const postUser = await UserModel.findById(postUserId?.userId);
+    const postUser = await UserModel.findById(postUserId.userId);
     res.send(postUser);
   } catch (err) {
     console.log(err);
