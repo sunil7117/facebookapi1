@@ -4,6 +4,9 @@ import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import connect from "./config/connect.js";
+import AuthRouter from "./routes/auth.js";
+import postRouter from "./routes/post.js";
+import userRouter from "./routes/user.js";
 
 dotenv.config();
 const app = express();
@@ -20,7 +23,10 @@ app.use(cookieParser());
 app.use(morgan("common"));
 app.use(express.json());
 app.use(cors());
+app.use("/api/auth", AuthRouter);
 
+app.use("/api/users", userRouter);
+app.use("/api/posts", postRouter);
 app.listen(PORT, () => {
   console.log("server started..." + PORT);
 });
