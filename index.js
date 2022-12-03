@@ -22,9 +22,10 @@ app.use(cookieParser());
 app.use(morgan("common"));
 app.use(express.json());
 app.use(cors());
-app.use("/api/auth", AuthRouter);
-app.use("/api/users", userRouter);
-app.use("/api/posts", postRouter);
+// remove all routes
+// app.use("/api/auth", AuthRouter);
+// app.use("/api/users", userRouter);
+// app.use("/api/posts", postRouter);
 // Routes Here
 app.listen(PORT, () => {
   console.log("server started..." + PORT);
